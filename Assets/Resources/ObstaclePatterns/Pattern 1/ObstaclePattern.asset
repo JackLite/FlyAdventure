@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d750dfaf981144e9e473c4d08540eb, type: 3}
+  m_Name: ObstaclePattern
+  m_EditorClassIdentifier: 
+  delay: 0
+  obstaclesContainers:
+  - {fileID: 11400000, guid: e6bfb946d686c8f4680a1859dee10d08, type: 2}
+  - {fileID: 11400000, guid: 3f790b32f9a47564c9bbbb3567679578, type: 2}
+  - {fileID: 11400000, guid: 2126c6c672e4b734da2bde0e20931ade, type: 2}
+  - {fileID: 11400000, guid: a1cd2c18b031e0d41aee878e35386ca8, type: 2}
+  - {fileID: 11400000, guid: e6bfb946d686c8f4680a1859dee10d08, type: 2}
+  - {fileID: 11400000, guid: 3f790b32f9a47564c9bbbb3567679578, type: 2}
+  - {fileID: 11400000, guid: dadb9d0bc477b9a4abe87d6605469054, type: 2}
+  - {fileID: 11400000, guid: 1a4b77cf2423b3d4bb8afa39782c46d1, type: 2}
+  - {fileID: 11400000, guid: fabaa3dd943506b49995f4fdbc4354bf, type: 2}
