@@ -1,0 +1,17 @@
+{
+    "name": "Goldstein.Core",
+    "references": [
+        "Unity.InputSystem",
+        "Leopotam.Ecs",
+        "Goldstein.Utilities.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
