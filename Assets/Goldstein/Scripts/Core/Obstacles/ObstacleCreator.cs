@@ -23,11 +23,10 @@ namespace Goldstein.Core.Obstacles
         public void Run()
         {
             _timeSinceLastSpawn += Time.deltaTime;
-            if (_timeSinceLastSpawn > _obstacleSpawnSettings.spawnFrequency)
-            {
-                Spawn();
-                _timeSinceLastSpawn = 0;
-            }
+            if (!(_timeSinceLastSpawn > _obstacleSpawnSettings.spawnFrequency)) return;
+            
+            Spawn();
+            _timeSinceLastSpawn = 0;
         }
 
         private void Spawn()
