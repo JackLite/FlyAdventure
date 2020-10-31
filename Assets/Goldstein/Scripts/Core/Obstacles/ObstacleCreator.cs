@@ -1,4 +1,5 @@
 ﻿using Goldstein.Core.Lines;
+using Goldstein.Scripts.Utilities;
 using Leopotam.Ecs;
 using UnityEngine;
 using Random = System.Random;
@@ -33,11 +34,15 @@ namespace Goldstein.Core.Obstacles
         {
             var obstacle = Object.Instantiate(_obstaclePrefab);
             obstacle.transform.position = GetRandomSpawnPoint();
+            var collisionProvider = obstacle.AddComponent<ObstacleCollisionProvider>();
+            var isCollideGetter = new GetterTemplate<bool>();
+            isCollideGetter.SetGetter(() => collisionProvider.IsCollideWithPlayer);
             var obstacleComponent = new ObstacleComponent
             {
                 speed = 12,
                 direction = _random.NextDouble() > .5f ? Vector3.left : Vector3.right,
-                transform = obstacle.transform
+                transform = obstacle.transform,
+                isCollideWithPlayer = isCollideGetter
             };
             var entity = _ecsWorld.NewEntity();
             entity.Replace(obstacleComponent);

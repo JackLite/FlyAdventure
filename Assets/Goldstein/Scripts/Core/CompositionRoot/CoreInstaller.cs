@@ -13,11 +13,7 @@ namespace Goldstein.Core.CompositionRoot
 
         private void Awake()
         {
-            _world = new EcsWorld();
-            _systems = new EcsSystems(_world);
-            foreach (var installer in installers) installer.RegisterSystems(_world, _systems);
-            _systems
-                .Init();
+            CoreStart();
         }
 
         private void Update()
@@ -26,6 +22,26 @@ namespace Goldstein.Core.CompositionRoot
         }
 
         private void OnDestroy()
+        {
+            CoreEnd();
+        }
+
+        public void Restart()
+        {
+            CoreEnd();
+            CoreStart();
+        }
+
+        private void CoreStart()
+        {
+            _world = new EcsWorld();
+            _systems = new EcsSystems(_world);
+            foreach (var installer in installers) installer.RegisterSystems(_world, _systems);
+            _systems.Init();
+            Time.timeScale = 1;
+        }
+
+        private void CoreEnd()
         {
             foreach (var installer in installers) installer.Dispose();
             _systems.Destroy();

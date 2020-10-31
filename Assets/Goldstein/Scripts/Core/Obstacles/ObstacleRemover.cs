@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace Goldstein.Core.Obstacles
 {
-    public class ObstacleRemover : IEcsRunSystem
+    public class ObstacleRemover : IEcsRunSystem, IEcsDestroySystem
     {
         private readonly EcsFilter<ObstacleComponent> _filter;
+        private readonly EcsFilter<ObstacleComponent, ObstacleCollideTag> _collideFilter;
         private readonly EcsWorld _world;
         private const float LifeTime = 10f;
 
@@ -17,10 +18,23 @@ namespace Goldstein.Core.Obstacles
                 obstacle.lifeTime += Time.deltaTime;
                 if (obstacle.lifeTime > LifeTime)
                 {
-                    Object.Destroy(obstacle.transform.gameObject);
-                    _filter.GetEntity(i).Destroy();
+                    DestroyObstacle(_filter.GetEntity(i));
                 }
             }
+        }
+
+        public void Destroy()
+        {
+            foreach (var i in _filter)
+            {
+                DestroyObstacle(_filter.GetEntity(i));
+            }
+        }
+
+        private void DestroyObstacle(EcsEntity entity)
+        {
+            Object.Destroy(entity.Get<ObstacleComponent>().transform.gameObject);
+            entity.Destroy();
         }
     }
 }

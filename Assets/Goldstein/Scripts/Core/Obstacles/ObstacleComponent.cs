@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Goldstein.Scripts.Utilities;
+using UnityEngine;
 
 namespace Goldstein.Core.Obstacles
 {
@@ -11,5 +12,7 @@ namespace Goldstein.Core.Obstacles
         /// Сколько времени существует препятствие
         /// </summary>
         public float lifeTime;
+
+        public GetterTemplate<bool> isCollideWithPlayer;
     }
 }
