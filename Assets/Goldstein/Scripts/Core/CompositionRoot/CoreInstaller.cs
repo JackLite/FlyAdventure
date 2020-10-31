@@ -16,7 +16,8 @@ namespace Goldstein.Core.CompositionRoot
             _world = new EcsWorld();
             _systems = new EcsSystems(_world);
             foreach (var installer in installers) installer.RegisterSystems(_world, _systems);
-            _systems.Init();
+            _systems
+                .Init();
         }
 
         private void Update()

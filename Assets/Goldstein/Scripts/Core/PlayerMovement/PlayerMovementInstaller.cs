@@ -14,10 +14,13 @@ namespace Goldstein.Core.PlayerMovement
         [SerializeField] private PlayerPositionProvider leftPlayerPositionProvider;
         [SerializeField] private PlayerPositionProvider rightPlayerPositionProvider;
 
+        [SerializeField] private MovementSettings movementSettings;
+
         public override void RegisterSystems(EcsWorld world, EcsSystems systems)
         {
             systems.Add(new PlayerMovementSystem(leftPlayerMovementController, rightPlayerMovementController))
-                .Add(new PlayerPositionInfoSystem(leftPlayerPositionProvider));
+                .Add(new PlayerPositionInfoSystem(leftPlayerPositionProvider, rightPlayerPositionProvider))
+                .Inject(movementSettings);
         }
     }
 }

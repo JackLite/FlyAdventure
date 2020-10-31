@@ -5,9 +5,8 @@ namespace Goldstein.Core.PlayerMovement
 {
     public class PlayerMoveController : MonoBehaviour
     {
-        [SerializeField] private float speed;
         [SerializeField] private Rigidbody2D playerRigidBody;
-        public void MovePlayer(float value)
+        public void MovePlayer(float yDirection, float speed)
         {
             if (playerRigidBody == null)
             {
@@ -15,7 +14,7 @@ namespace Goldstein.Core.PlayerMovement
                 return;
             }
             var oldPos = playerRigidBody.position;
-            playerRigidBody.MovePosition(new Vector2(oldPos.x, oldPos.y + value * speed * Time.fixedDeltaTime));
+            playerRigidBody.MovePosition(new Vector2(oldPos.x, oldPos.y + yDirection * speed * Time.fixedDeltaTime));
         }
     }
 }

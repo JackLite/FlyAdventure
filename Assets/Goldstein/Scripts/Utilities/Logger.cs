@@ -13,7 +13,7 @@ namespace Goldstein.Scripts.Utilities
         public static void Log(object msg)
         {
             if(Debug.isDebugBuild)
-                Debug.LogError(msg.ToString());
+                Debug.Log(msg.ToString());
         }
     }
 }

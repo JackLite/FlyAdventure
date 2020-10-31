@@ -12,7 +12,6 @@ namespace Goldstein.Core.PlayerInput
 
         public void Run()
         {
-            Debug.Log(_leftPlayerFilter.GetEntitiesCount());
             ref var leftPlayer = ref _leftPlayerFilter.Get2(0);
             leftPlayer.value = GetLeftInput();
             ref var rightPlayer = ref _rightPlayerFilter.Get2(0);
