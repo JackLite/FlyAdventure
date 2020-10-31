@@ -15,6 +15,7 @@ namespace Goldstein.Core.Obstacles
         {
             ecsSystems.Add(new ObstacleMovementSystem())
                 .Add(new ObstacleCreator(obstaclePrefab))
+                .Add(new ObstacleRemover())
                 .Inject(lineSettings)
                 .Inject(obstacleSpawnSettings);
         }
