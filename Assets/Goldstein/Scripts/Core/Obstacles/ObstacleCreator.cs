@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using Goldstein.Core.Lines;
+using Leopotam.Ecs;
 using UnityEngine;
 using Random = System.Random;
 
@@ -9,19 +10,20 @@ namespace Goldstein.Core.Obstacles
         private readonly GameObject _obstaclePrefab;
         private readonly EcsWorld _ecsWorld;
         private readonly Random _random = new Random();
-        
-        private float _frequency = 2f;
+        private readonly LineSettings _lineSettings;
+        private readonly ObstacleSpawnSettings _obstacleSpawnSettings;
+
         private float _timeSinceLastSpawn;
 
         public ObstacleCreator(GameObject obstaclePrefab)
         {
             _obstaclePrefab = obstaclePrefab;
         }
-        
+
         public void Run()
         {
             _timeSinceLastSpawn += Time.deltaTime;
-            if (_timeSinceLastSpawn > _frequency)
+            if (_timeSinceLastSpawn > _obstacleSpawnSettings.spawnFrequency)
             {
                 Spawn();
                 _timeSinceLastSpawn = 0;
@@ -31,14 +33,21 @@ namespace Goldstein.Core.Obstacles
         private void Spawn()
         {
             var obstacle = Object.Instantiate(_obstaclePrefab);
-            var obstacleComponent = new ObstacleComponent()
+            obstacle.transform.position = GetRandomSpawnPoint();
+            var obstacleComponent = new ObstacleComponent
             {
-                speed = 20,
+                speed = 12,
                 direction = _random.NextDouble() > .5f ? Vector3.left : Vector3.right,
                 transform = obstacle.transform
             };
             var entity = _ecsWorld.NewEntity();
             entity.Replace(obstacleComponent);
+        }
+
+        private Vector3 GetRandomSpawnPoint()
+        {
+            var position = _lineSettings.linesStart[_random.Next(0, _lineSettings.linesStart.Length)];
+            return new Vector3(position.x, position.y, _obstacleSpawnSettings.zPosition);
         }
     }
 }

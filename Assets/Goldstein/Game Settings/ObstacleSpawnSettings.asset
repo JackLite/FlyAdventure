@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 370d0c1bb1b243f490ca1584a8264044, type: 3}
-  m_Name: LinesSettings
+  m_Script: {fileID: 11500000, guid: 8206f13703bd4e7ebd1e30d2f708e4c3, type: 3}
+  m_Name: ObstacleSpawnSettings
   m_EditorClassIdentifier: 
-  linesStart:
-  - {x: 0, y: 25}
-  - {x: 0, y: 30}
-  - {x: 0, y: 35}
+  zPosition: 10
