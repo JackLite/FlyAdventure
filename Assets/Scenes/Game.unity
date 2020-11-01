@@ -830,10 +830,10 @@ GameObject:
   m_Component:
   - component: {fileID: 962496504}
   - component: {fileID: 962496503}
-  - component: {fileID: 962496505}
   - component: {fileID: 962496506}
   - component: {fileID: 962496502}
   - component: {fileID: 962496507}
+  - component: {fileID: 962496505}
   m_Layer: 0
   m_Name: LeftPlayerAvatar
   m_TagString: Player
@@ -918,8 +918,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &962496505
-BoxCollider2D:
+--- !u!60 &962496505
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -941,9 +941,27 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 13.49, y: 13.71}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.405, y: 6.5249996}
+      - {x: -0.235, y: 6.6949997}
+      - {x: -1.615, y: 6.375}
+      - {x: -3.605, y: 4.115}
+      - {x: -5.025, y: 1.135}
+      - {x: -6.4849997, y: -0.24499999}
+      - {x: -5.9849997, y: -3.665}
+      - {x: -4.375, y: -3.5349998}
+      - {x: -3.0349998, y: -4.665}
+      - {x: -3.0249999, y: -6.165}
+      - {x: 2.705, y: -6.185}
+      - {x: 4.125, y: -3.115}
+      - {x: 4.9849997, y: -3.705}
+      - {x: 5.7149997, y: -3.745}
+      - {x: 6.035, y: -1.885}
+      - {x: 6.305, y: -0.575}
+      - {x: 5.725, y: 0.585}
+      - {x: 4.7349997, y: 0.98499995}
+      - {x: 3.8049998, y: 4.3849998}
 --- !u!50 &962496506
 Rigidbody2D:
   serializedVersion: 4
@@ -1384,9 +1402,9 @@ GameObject:
   - component: {fileID: 1407311920}
   - component: {fileID: 1407311919}
   - component: {fileID: 1407311921}
-  - component: {fileID: 1407311918}
   - component: {fileID: 1407311917}
   - component: {fileID: 1407311922}
+  - component: {fileID: 1407311918}
   m_Layer: 0
   m_Name: RightPlayerAvatar
   m_TagString: Player
@@ -1415,8 +1433,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1407311918
-BoxCollider2D:
+--- !u!60 &1407311918
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1438,9 +1456,27 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 13.49, y: 13.71}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.405, y: 6.5249996}
+      - {x: -0.235, y: 6.6949997}
+      - {x: -1.615, y: 6.375}
+      - {x: -3.605, y: 4.115}
+      - {x: -5.025, y: 1.135}
+      - {x: -6.4849997, y: -0.24499999}
+      - {x: -5.9849997, y: -3.665}
+      - {x: -4.375, y: -3.5349998}
+      - {x: -3.0349998, y: -4.665}
+      - {x: -3.0249999, y: -6.165}
+      - {x: 2.705, y: -6.185}
+      - {x: 4.125, y: -3.115}
+      - {x: 4.9849997, y: -3.705}
+      - {x: 5.7149997, y: -3.745}
+      - {x: 6.035, y: -1.885}
+      - {x: 6.305, y: -0.575}
+      - {x: 5.725, y: 0.585}
+      - {x: 4.7349997, y: 0.98499995}
+      - {x: 3.8049998, y: 4.3849998}
 --- !u!212 &1407311919
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1682,8 +1718,8 @@ GameObject:
   - component: {fileID: 1474685473}
   - component: {fileID: 1474685472}
   - component: {fileID: 1474685471}
-  - component: {fileID: 1474685470}
   - component: {fileID: 1474685474}
+  - component: {fileID: 1474685470}
   m_Layer: 0
   m_Name: RightScreen
   m_TagString: Untagged
@@ -1691,8 +1727,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &1474685470
-MeshCollider:
+--- !u!65 &1474685470
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1701,10 +1737,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10.000005, y: 0.000004768372, z: 8.609134}
+  m_Center: {x: -0.00000047683716, y: 5.554588e-15, z: 0.6954346}
 --- !u!23 &1474685471
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1873,7 +1908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftCam: {fileID: 519420031}
   rightCam: {fileID: 1029554}
-  _mode: 0
+  _mode: 1
 --- !u!114 &1566689462
 MonoBehaviour:
   m_ObjectHideFlags: 0
