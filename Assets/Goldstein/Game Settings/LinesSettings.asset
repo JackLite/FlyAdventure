@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linesStart:
   - {x: 0, y: 25}
-  - {x: 0, y: 30}
-  - {x: 0, y: 35}
+  - {x: 0, y: 29}
+  - {x: 0, y: 33}

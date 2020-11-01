@@ -10,16 +10,6 @@ namespace Goldstein.Core.Lines
     {
         public Vector2[] linesStart;
         
-        private void OnEnable()
-        {
-            Logger.Log("Enable");
-        }
-
-        private void OnDisable()
-        {
-            Logger.Log("disables");
-        }
-
         #if UNITY_EDITOR
         private void OnValidate()
         {
