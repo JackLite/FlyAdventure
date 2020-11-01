@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Logger = Goldstein.Scripts.Utilities.Logger;
 
 namespace Goldstein.Core.PlayerMovement
@@ -28,6 +27,7 @@ namespace Goldstein.Core.PlayerMovement
 
         public void Reset()
         {
+            if (playerRigidBody == null) return;
             playerRigidBody.position = _startPos;
         }
     }

@@ -601,6 +601,7 @@ GameObject:
   - component: {fileID: 684283650}
   - component: {fileID: 684283649}
   - component: {fileID: 684283648}
+  - component: {fileID: 684283651}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -670,18 +671,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 684283649}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1566689462}
-        m_MethodName: Restart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &684283649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,6 +709,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684283646}
   m_CullTransparentMesh: 0
+--- !u!114 &684283651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684283646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3d47895ce84225928c5161be98a44d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 684283648}
 --- !u!1 &761283744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,6 +1883,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endGameWindow: {fileID: 150762583}
   pauseButton: {fileID: 1264440919}
+  restartButton: {fileID: 684283651}
+  coreInstaller: {fileID: 1566689462}
 --- !u!4 &1566689460
 Transform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ namespace Goldstein.Core
 {
     public class EndGameSystem : IEcsRunSystem
     {
+        private readonly EcsWorld _world;
         private readonly EcsFilter<EndGameEvent> _filter;
         private readonly GameObject _endGameWindow;
 
@@ -15,11 +16,10 @@ namespace Goldstein.Core
         
         public void Run()
         {
-            if (_filter.GetEntitiesCount() > 0)
-            {
-                Time.timeScale = 0;
-                _endGameWindow.SetActive(true);
-            }
+            if (_filter.GetEntitiesCount() <= 0) return;
+            
+            _world.NewEntity().Replace(new PauseCoreEvent());
+            _endGameWindow.SetActive(true);
         }
     }
 }

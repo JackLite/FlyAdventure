@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
-using Logger = Goldstein.Scripts.Utilities.Logger;
 
 namespace Goldstein.Utilities.UiProviders
 {
@@ -13,13 +12,11 @@ namespace Goldstein.Utilities.UiProviders
 
         private void Awake()
         {
-            Logger.Log("ButtonAwake");
             button.onClick.AddListener(OnButtonClickHandler);
         }
 
         private void OnButtonClickHandler()
         {
-            Logger.Log("ClickHandler");
             OnButtonClick?.Invoke();
         }
     }

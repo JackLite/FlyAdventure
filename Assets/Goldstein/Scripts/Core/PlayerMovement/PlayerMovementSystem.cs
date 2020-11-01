@@ -1,6 +1,5 @@
 ﻿using Goldstein.Core.PlayerInput;
 using Leopotam.Ecs;
-using UnityEngine;
 
 namespace Goldstein.Core.PlayerMovement
 {

@@ -1,5 +1,4 @@
-﻿using Goldstein.Scripts.Utilities;
-using Goldstein.Utilities.UiProviders;
+﻿using Goldstein.Utilities.UiProviders;
 using Leopotam.Ecs;
 
 namespace Goldstein.Core
@@ -22,7 +21,6 @@ namespace Goldstein.Core
 
         private void CreatePauseEvent()
         {
-            Logger.Log("Click!");
             if (_isPaused)
             {
                 _isPaused = false;
