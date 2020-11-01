@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Logger = Goldstein.Scripts.Utilities.Logger;
 
 namespace Goldstein.Core.PlayerMovement
@@ -6,6 +7,14 @@ namespace Goldstein.Core.PlayerMovement
     public class PlayerMoveController : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D playerRigidBody;
+
+        private Vector3 _startPos;
+
+        private void Awake()
+        {
+            _startPos = playerRigidBody.position;
+        }
+
         public void MovePlayer(float yDirection, float speed)
         {
             if (playerRigidBody == null)
@@ -15,6 +24,11 @@ namespace Goldstein.Core.PlayerMovement
             }
             var oldPos = playerRigidBody.position;
             playerRigidBody.MovePosition(new Vector2(oldPos.x, oldPos.y + yDirection * speed * Time.fixedDeltaTime));
+        }
+
+        public void Reset()
+        {
+            playerRigidBody.position = _startPos;
         }
     }
 }

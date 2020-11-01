@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Goldstein.Core.PlayerMovement
 {
-    public class PlayerMovementSystem : IEcsRunSystem
+    public class PlayerMovementSystem : IEcsPostDestroySystem, IEcsRunSystem
     {
         private readonly PlayerMoveController _leftPlayer;
         private readonly PlayerMoveController _rightPlayer;
@@ -26,6 +26,12 @@ namespace Goldstein.Core.PlayerMovement
             ref var rightPlayer = ref _rightPlayerFilter.Get2(0);
             _leftPlayer.MovePlayer(leftPlayer.value, _movementSettings.speed);
             _rightPlayer.MovePlayer(rightPlayer.value, _movementSettings.speed);
+        }
+
+        public void PostDestroy()
+        {
+            _leftPlayer.Reset();
+            _rightPlayer.Reset();
         }
     }
 }
