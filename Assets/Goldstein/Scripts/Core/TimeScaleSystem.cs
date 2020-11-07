@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using Goldstein.Core.Events;
+using Leopotam.Ecs;
 using UnityEngine;
 
 namespace Goldstein.Core
@@ -6,7 +7,7 @@ namespace Goldstein.Core
     public class TimeScaleSystem : IEcsRunSystem
     {
         private readonly EcsFilter<PauseCoreEvent> _filterPause;
-        private readonly EcsFilter<UnPauseCoreEvent> _filterUnPause;
+        private readonly EcsFilter<ResumeCoreEvent> _filterUnPause;
         
         public void Run()
         {

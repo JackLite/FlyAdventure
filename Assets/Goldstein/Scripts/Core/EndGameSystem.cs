@@ -1,15 +1,15 @@
-﻿using Leopotam.Ecs;
-using UnityEngine;
+﻿using Goldstein.Utilities.UiProviders;
+using Leopotam.Ecs;
 
 namespace Goldstein.Core
 {
-    public class EndGameSystem : IEcsRunSystem
+    public class EndGameSystem : IEcsInitSystem, IEcsRunSystem
     {
         private readonly EcsWorld _world;
         private readonly EcsFilter<EndGameEvent> _filter;
-        private readonly GameObject _endGameWindow;
+        private readonly ScreenProvider _endGameWindow;
 
-        public EndGameSystem(GameObject endGameWindow)
+        public EndGameSystem(ScreenProvider endGameWindow)
         {
             _endGameWindow = endGameWindow;
         }
@@ -19,7 +19,12 @@ namespace Goldstein.Core
             if (_filter.GetEntitiesCount() <= 0) return;
             
             _world.NewEntity().Replace(new PauseCoreEvent());
-            _endGameWindow.SetActive(true);
+            _endGameWindow.Enable();
+        }
+
+        public void Init()
+        {
+            _endGameWindow.Disable();
         }
     }
 }

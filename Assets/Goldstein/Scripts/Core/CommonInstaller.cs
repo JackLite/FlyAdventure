@@ -10,22 +10,25 @@ namespace Goldstein.Core
 {
     public sealed class CommonInstaller : AbstractSystemInstaller
     {
-        [SerializeField] private GameObject endGameWindow;
+        [SerializeField] private ScreenProvider endGameWindow;
         [SerializeField] private ButtonProvider pauseButton;
+        [SerializeField] private ButtonProvider resumeButton;
         [SerializeField] private ButtonProvider restartButton;
+
+        [SerializeField] private ScreenProvider pauseScreen;
+        
         [SerializeField] private CoreInstaller coreInstaller;
         public override void RegisterSystems(EcsWorld world, EcsSystems systems)
         {
-            endGameWindow.SetActive(false);
             systems.Add(new PlayerInitSystem())
                 .Add(new EndGameSystem(endGameWindow))
                 .Add(new TimeScaleSystem())
-                .Add(new PauseSystem(pauseButton))
+                .Add(new PauseSystem(pauseButton, resumeButton, pauseScreen))
                 .Add(new RestartSystem(coreInstaller))
                 .Add(new RestartProxy(restartButton))
                 .OneFrame<RestartEvent>()
                 .OneFrame<PauseCoreEvent>()
-                .OneFrame<UnPauseCoreEvent>();
+                .OneFrame<ResumeCoreEvent>();
         }
     }
 }
